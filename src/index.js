@@ -7,9 +7,12 @@ const puppeteer = require('puppeteer-core');
 async function run() {
       const browser = await puppeteer.launch({args:['--no-sandbox'],executablePath: '/usr/bin/chromium-browser'});
       const page = await browser.newPage();
-      
-      await page.goto('https://github.com');
-      await page.screenshot({ path: 'screenshots/github.png' });
+      address = 'https://github.com';
+      console.log('capturing '+ address); 
+      await page.goto(address);
+      console.log('page opened'); 
+      await page.screenshot({ path: 'img/capture.png' });
+      console.log('screenshot taken'); 
       
       browser.close();
 }
