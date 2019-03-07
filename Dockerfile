@@ -16,3 +16,9 @@ RUN npm install
 COPY --chown=node:node src ./src
 
 USER node
+
+VOLUME ["/home/node/src"]
+
+EXPOSE 9222
+
+CMD ["node","src/index.js"]
